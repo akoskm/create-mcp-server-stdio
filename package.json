@@ -4,6 +4,17 @@
   "description": "",
   "main": "dist/index.js",
   "packageManager": "pnpm@9.6.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akoskm/mcp-server-stdio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/akoskm/mcp-server-stdio/issues"
+  },
+  "homepage": "https://github.com/akoskm/mcp-server-stdio#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "scripts": {
     "build": "tsc"
