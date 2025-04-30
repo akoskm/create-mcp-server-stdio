@@ -1,6 +1,6 @@
 # Simple MCP Server starter with StdioServerTransport
 
-This is a simple MCP server starter using the StdioServerTransport.
+This is a simple MCP server starter kit using the StdioServerTransport.
 
 ## Installation
 

@@ -1,7 +1,7 @@
 {
-  "name": "@akoskm/mcp-server-stdio",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@akoskm/create-mcp-server-stdio",
+  "version": "0.0.3",
+  "description": "MCP Server Starter kit using the StdioServerTransport",
   "main": "dist/index.js",
   "packageManager": "pnpm@9.6.0",
   "repository": {
