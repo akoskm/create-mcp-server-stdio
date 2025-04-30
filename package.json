@@ -1,5 +1,5 @@
 {
-  "name": "mcp-server-stdio",
+  "name": "@akoskm/mcp-server-stdio",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
