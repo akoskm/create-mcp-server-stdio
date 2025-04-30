@@ -1,7 +1,7 @@
 import { McpServer, ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-
+import { exec } from "child_process";
 // Create an MCP server
 const server = new McpServer({
   name: "Demo",
@@ -15,6 +15,39 @@ server.tool("add",
     content: [{ type: "text", text: String(a + b) }]
   })
 );
+
+interface ProcessInfo {
+  command: string;
+  pid: string | null;
+}
+
+server.tool("which-app-on-port", { port: z.number() }, async ({ port }) => {
+  const result = await new Promise<ProcessInfo>((resolve, reject) => {
+    exec(`lsof -t -i tcp:${port}`, (error, pidStdout) => {
+      if (error) {
+        reject(error);
+        return;
+      }
+      const pid = pidStdout.trim();
+      exec(`ps -p ${pid} -o comm=`, (error, stdout) => {
+        if (error) {
+          reject(error);
+          return;
+        }
+        resolve({ command: stdout.trim(), pid });
+      });
+    });
+  });
+
+  const response = {
+    pid: result.pid,
+    command: result.command,
+  };
+
+  return {
+    content: [{ type: "text", text: JSON.stringify(response) }]
+  };
+});
 
 // Add a dynamic greeting resource
 server.resource(

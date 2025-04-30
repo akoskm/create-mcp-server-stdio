@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "docker": {
-      "command": "npx",
-      "args": ["-y", "dist/index.js"]
+      "command": "node",
+      "args": ["/Users/akoskm/Projects/egghead/mcp-server-stdio/dist/index.js"]
     }
   }
 }
