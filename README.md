@@ -2,7 +2,15 @@
 
 This is a simple MCP server starter kit using the StdioServerTransport.
 
-## Installation
+## Setup
+
+Create a new MCP server with StdioServerTransport
+
+```
+npm create @akoskm/mcp-server-stdio my-mcp-server
+```
+
+This command will create a new directory called `my-mcp-server` with the contents of this repository.
 
 Edit the `.cursor/mcp.json` file to change the runtime command if you are not using Bun.
 
