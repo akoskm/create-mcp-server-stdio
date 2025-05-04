@@ -6,6 +6,12 @@ This is a simple MCP server starter kit using the StdioServerTransport.
 
 Create a new MCP server with StdioServerTransport
 
+PNPM
+```
+pnpm dlx github:akoskm/mcp-server-stdio my-mcp-server
+```
+
+NPM
 ```
 npm create @akoskm/mcp-server-stdio my-mcp-server
 ```
