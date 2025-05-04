@@ -1,8 +1,8 @@
 {
   "name": "@akoskm/create-mcp-server-stdio",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "MCP Server Starter kit using the StdioServerTransport",
-  "main": "dist/index.js",
+  "main": "package/cli.js",
   "packageManager": "pnpm@9.6.0",
   "repository": {
     "type": "git",
@@ -34,6 +34,6 @@
     "typescript": "^5.8.3"
   },
   "bin": {
-    "create-mcp-server-stdio": "package/cli.js"
+    "create-mcp-server-stdio": "./package/cli.js"
   }
 }
