@@ -24,10 +24,15 @@
   "license": "ISC",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.10.2",
+    "degit": "2.8.4",
     "zod": "^3.24.3"
   },
   "devDependencies": {
+    "@types/degit": "^2.8.6",
     "@types/node": "^22.15.3",
     "typescript": "^5.8.3"
+  },
+  "bin": {
+    "create-mcp-server-stdio": "dist/cli.js"
   }
 }
