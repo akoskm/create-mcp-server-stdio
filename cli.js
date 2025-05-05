@@ -6,6 +6,12 @@ const emitter = degit(repo, { cache: false, force: true, verbose: true });
 
 const targetDir = process.argv[2] || ".";
 
-emitter.clone(targetDir).then(() => {
-  console.log("Template copied!");
-});
+emitter.clone(targetDir)
+  .then(() => {
+    console.log("Template copied!");
+    process.exit(0);
+  })
+  .catch((error) => {
+    console.error("Failed to copy template:", error);
+    process.exit(1);
+  });
