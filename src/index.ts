@@ -1,7 +1,7 @@
 import { McpServer, ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import { exec } from "child_process";
+import { execFile } from "child_process";
 // Create an MCP server
 const server = new McpServer({
   name: "Demo",
@@ -23,13 +23,13 @@ interface ProcessInfo {
 
 server.tool("which-app-on-port", { port: z.number() }, async ({ port }) => {
   const result = await new Promise<ProcessInfo>((resolve, reject) => {
-    exec(`lsof -t -i tcp:${port}`, (error, pidStdout) => {
+    execFile('lsof', ['-t', '-i', `tcp:${port}`], (error, pidStdout) => {
       if (error) {
         reject(error);
         return;
       }
       const pid = pidStdout.trim();
-      exec(`ps -p ${pid} -o comm=`, (error, stdout) => {
+      execFile('ps', ['-o', 'comm=', '-p', pid], (error, stdout) => {
         if (error) {
           reject(error);
           return;
